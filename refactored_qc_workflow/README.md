@@ -86,14 +86,6 @@ These matrices are used to build a layered `AnnData` object containing:
    - state-annotated `.h5ad` files
    - matrix exports for downstream variability / burst-kinetics analyses
 
-## Example figure: QC filtering
-
-<p align="center">
-  <img src="examples/violin_plots_POSTQC_cutoffs.svg" width="650">
-</p>
-
-This figure summarizes the main quality-control metrics used for filtering, including genes detected, total UMI counts, and mitochondrial fraction. It represents one of the first major processing steps in the workflow and helps document how low-quality cells were excluded before downstream analysis.
-
 ## Repository structure
 
 ### `run_qc_report.py`
@@ -174,14 +166,6 @@ Outputs include:
 - state-annotated `.h5ad` objects
 - per-state matrix exports
 - HVG-based exports for downstream analyses
-
-## Example figure: 4sU dropout check
-
-<p align="center">
-  <img src="examples/dropout_vs_NTRrank_by_state.svg" width="700">
-</p>
-
-This diagnostic summarizes how 4sU dropout-related behavior varies across NTR-ranked genes in annotated cell states. This plot was based on the quantification bias paper by Berg et al., 2024.
 
 ## How to run
 
