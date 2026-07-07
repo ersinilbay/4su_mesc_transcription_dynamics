@@ -1,6 +1,6 @@
 # Refactored QC Workflow
 
-This repository contains the refactored QC workflow developed during my MSc internship on 4sU-labelled/scNT-seq data from mouse embryonic stem cells (mESCs) (from Qiu et al., 2020).
+This directory contains the refactored QC workflow developed during my MSc internship on 4sU-labelled/scNT-seq data from mouse embryonic stem cells (mESCs) (from Qiu et al., 2020).
 
 This workflow serves as the bridge from published processed scNT-seq paired new (`C`) and old (`T`) RNA gene-by-cell count matrices toward plots for biological interpretation. Starting from paired new and old RNA gene-by-cell count matrices, it performs QC (Scanpy), cell-state annotation, check for 4sU amplification bias (grandR based), and exports for downstream variability and burst-kinetics analyses.
 
