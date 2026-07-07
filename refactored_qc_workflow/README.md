@@ -12,13 +12,13 @@ Steps of this workflow include:
         `total`
         `ntr`
 - computing quality-control metrics
-        - genes detected per cell
-        - total UMI counts
-        - mitochondrial fraction
-        - mean NTR per cell
+        (genes detected per cell,
+        total UMI counts,
+        mitochondrial fraction,
+        mean NTR per cell)
 - and filtering low-quality cells and low-informative genes
-        - filter low-quality cells
-        - filter low-information genes
+        (filter low-quality cells,
+        filter low-information genes)
 - performing normalization / log transformation / HVG selection / neighborhood graph / PCA / UMAP / Leiden-based structure analysis
 - annotating cells into `Pluripotent`, `Intermediate`, and `2-cell like` states using marker-based scores
 - estimating gene-level RNA stability, including half-life, global degradation rate, and global synthesis rate
