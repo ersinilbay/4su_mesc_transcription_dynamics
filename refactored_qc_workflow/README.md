@@ -1,90 +1,31 @@
 # Refactored QC Workflow
 
-This folder contains a post-internship refactored version of the QC workflow developed during my MSc internship on 4sU-labelled/scNT-seq data from mouse embryonic stem cells (mESCs) (from Qiu et al., 2020).
+This repository contains the refactored QC workflow developed during my MSc internship on 4sU-labelled/scNT-seq data from mouse embryonic stem cells (mESCs) (from Qiu et al., 2020).
 
-This workflow serves as the bridge from published processed scNT-seq count matrices toward plots for biological interpretation. Starting from paired new and old RNA gene-by-cell count matrices, it performs QC, cell-state annotation, RNA-stability validation, and exports processed data for downstream variability and burst-kinetics analyses.
+This workflow serves as the bridge from published processed scNT-seq paired new (`C`) and old (`T`) RNA gene-by-cell count matrices toward plots for biological interpretation. Starting from paired new and old RNA gene-by-cell count matrices, it performs QC (Scanpy), cell-state annotation, check for 4sU amplification bias (grandR based), and exports for downstream variability and burst-kinetics analyses.
 
-## Biological objective
-
-The biological goal of this workflow is to process 4sU/scNT-seq data from mESCs and generate a structured, interpretable representation of the dataset that can support questions about:
-
-- cell-state heterogeneity
-- transitions toward a 2-cell-like state
-- RNA stability
-- downstream transcriptional bursting/noise analyses
-
-## What this workflow implements
-
-This workflow starts from published processed scNT-seq paired new (`C`) and old (`T`) RNA gene-by-cell count matrices and performs the downstream analysis steps needed to generate biologically interpretable outputs.
-
-This includes:
-
+Steps of this workflow include:
 - constructing an `AnnData` object from paired new and old RNA count matrices
-- computing quality-control metrics and filtering low-quality cells and low-informative genes
-- performing PCA / UMAP / Leiden-based structure analysis
+     These matrices are used to build a layered `AnnData` object containing:
+        `C`
+        `T`
+        `total`
+        `ntr`
+- computing quality-control metrics...
+        - genes detected per cell
+        - total UMI counts
+        - mitochondrial fraction
+        - mean NTR per cell
+- and filtering low-quality cells and low-informative genes
+        - filter low-quality cells
+        - filter low-information genes
+- performing normalization / log transformation / HVG selection / neighborhood graph / PCA / UMAP / Leiden-based structure analysis
 - annotating cells into `Pluripotent`, `Intermediate`, and `2-cell like` states using marker-based scores
 - estimating gene-level RNA stability, including half-life, global degradation rate, and global synthesis rate
-- measuring 4sud dropout per cell state
-- comparing inferred quantities to external reference datasets
+- measuring 4sU dropout per cell state
+- Export processed outputs (state-annotated `.h5ad` files and matrices for burst-kinetics analyses)
+- comparing inferred bursting parameters (from separate NASC-Seq2 script) to external reference datasets
 - exporting quality-controlled single-cell objects, state-annotated cell populations and processed outputs for downstream analyses
-
-## Workflow overview
-
-### Inputs
-
-The workflow starts from paired gene-by-cell UMI count matrices:
-
-- `C`: newly labeled / new RNA counts
-- `T`: pre-existing / old RNA counts
-
-These matrices are used to build a layered `AnnData` object containing:
-
-- `C`
-- `T`
-- `total`
-- `ntr`
-
-### Core analysis steps
-
-1. **Build the base single-cell object**
-   - construct `AnnData` from paired new/old RNA matrices
-
-2. **Compute QC metrics**
-   - genes detected per cell
-   - total UMI counts
-   - mitochondrial fraction
-   - mean NTR per cell
-
-3. **Apply QC filtering**
-   - filter low-quality cells
-   - filter low-information genes
-
-4. **Run dimensionality reduction and clustering**
-   - normalization
-   - log transformation
-   - HVG selection
-   - PCA
-   - neighborhood graph
-   - UMAP
-   - Leiden clustering
-
-5. **Annotate cell states**
-   - score cells using pluripotency and 2-cell-like marker sets
-   - define `Pluripotent`, `Intermediate`, and `2-cell like` states
-
-6. **Estimate gene-level RNA stability / turnover quantities**
-   - half-life
-   - global degradation rate
-   - global synthesis rate
-
-7. **Validate against external references**
-   - compare estimated half-lives and rates to published reference datasets
-
-8. **Export processed outputs**
-   - figures
-   - RNA stability / turnover summary tables
-   - state-annotated `.h5ad` files
-   - matrix exports for downstream variability / burst-kinetics analyses
 
 ## Repository structure
 
