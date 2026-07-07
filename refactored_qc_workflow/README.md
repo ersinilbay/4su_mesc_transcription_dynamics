@@ -91,23 +91,6 @@ Additional local reference files used in the workflow were derived from publishe
 - SLAM-seq supplementary material used for half-life comparison
 - processed external reference data used in stability/dropout diagnostics
 
-## Main outputs
-
-The workflow writes results to the configured results directory, for example:
-
-`results/_rep1_fix/`
-
-Outputs include:
-
-- QC violin and scatter plots
-- PCA variance plot
-- UMAP visualizations
-- cell-state annotation outputs
-- RNA stability estimates, including half-life, global deg/syn rates
-- state-annotated `.h5ad` objects
-- per-state matrix exports
-- HVG-based exports for downstream analyses
-
 ## How to run
 
 From the repository root:
