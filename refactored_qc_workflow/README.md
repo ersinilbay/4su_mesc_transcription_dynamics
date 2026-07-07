@@ -11,7 +11,7 @@ Steps of this workflow include:
         `T`
         `total`
         `ntr`
-- computing quality-control metrics...
+- computing quality-control metrics
         - genes detected per cell
         - total UMI counts
         - mitochondrial fraction
