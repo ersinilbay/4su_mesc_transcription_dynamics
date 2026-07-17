@@ -4,4 +4,4 @@ results/*
 !results/.gitkeep
 __pycache__/
 *.pyc
-.DS_Store
+.DS_Store*.py[cod]
