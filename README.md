@@ -24,10 +24,10 @@ Fano factor-based analyses of gene-level transcriptional variability in the plur
 
 Adapted workflows for inferring transcriptional kinetic parameters in the pluripotent cell population.
 
-- `nascseq2_adapted/`  
+- `run_nascseq2_inference.sh`  
   Adapted from the NASC-seq2 analysis code described by Ramsköld et al. (2024).
 
-- `deeptx_adapted/`  
+- `deeptx_adaptation_notes.md`  
   Adapted from the DeepTX framework described by Huang et al. (2026).
 
 ## Data and software attribution
