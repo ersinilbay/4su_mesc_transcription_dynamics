@@ -1,6 +1,6 @@
 # Transcriptional dynamics in 4sU-labeled mESCs
 
-This repository contains workflows developed during an MSc research internship to analyze published 4sU-labeled single-cell transcriptomic data from mouse embryonic stem cells.
+This repository contains workflows developed during an MSc research internship to analyze 4sU-labeled single-cell transcriptomic data from mouse embryonic stem cells.
 
 The analyses include quality control, assessment of potential labeling-related quantification bias, transcriptional variability analysis, and inference of transcriptional kinetic parameters.
 
