@@ -12,6 +12,12 @@ The workflow includes:
 - assessment of potential 4sU-related dropout and quantification bias, adapted from grandR
 - export of processed data for downstream analyses
 
+## Example output
+
+UMAP showing pluripotent, intermediate, and 2C-like cell states using marker-based annotation.
+
+![UMAP of annotated cell states](examples/umap_cell_states.svg)
+
 ## Files
 
 - `run_qc_report.py`: runs the complete workflow
